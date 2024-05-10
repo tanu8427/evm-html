@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronic Voting Machine</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: rgb(230, 226, 222);
+margin: 0;
+padding: 0;
+}
+.machine {
+border: 2px solid black;
+background-color: rgb(221, 201, 172);
+margin: 0 auto;
+max-width: 600px;
+padding: 20px;
+}
+.buttons {
+background-color: rgb(190, 165, 104);
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+button {
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+button:hover {
+background-color: rgb(238, 127, 9);
+}
+h1 {
+font-size: 24px;
+margin-bottom: 20px;
+}
+p {
+font-size: 16px;
+margin: 10px 0;
+}
+</style>
+</head>
+<body>
+<div class="machine">
+<div class="buttons">
+<h1>Vote for Your Favorite Party</h1>
+<button onclick="vote('BJP')">BJP</button>
+<button onclick="vote('CONGRESS')">Congress</button>
+<button onclick="vote('AAP')">AAP</button>
+<button onclick="vote('SP')">Samajwadi Party</button>
+</div>
+<h2>Results:</h2>
+<p>BJP: <span id="bjpVotes">0</span></p>
+<p>Congress: <span id="congressVotes">0</span></p>
+<p>AAP: <span id="aapVotes">0</span></p>
+<p>Samajwadi Party: <span id="spVotes">0</span></p>
+</div>
+<script>
+let bjpVotes = 0;
+let congressVotes = 0;
+let aapVotes = 0;
+let spVotes = 0;
+function vote(party) {
+switch (party) {
+case 'BJP':
+bjpVotes++;
+break;
+case 'CONGRESS':
+congressVotes++;
+break;
+case 'AAP':
+aapVotes++;
+break;
+case 'SP':
+spVotes++;
+break;
+}
+updateResults();
+}
+function updateResults() {
+document.getElementById('bjpVotes').textContent = bjpVotes;
+document.getElementById('congressVotes').textContent = 
+congressVotes;
+document.getElementById('aapVotes').textContent = aapVotes;
+document.getElementById('spVotes').textContent = spVotes;
+}
+</script>
+</body>
+</html>
